@@ -1,0 +1,45 @@
+<div class="row" style="padding-left:10px">
+
+
+    <div class="col-md-8">
+
+        <h1>Game titles</h1>
+        <ul>
+            <!-- <li ng-repeat="games in vm.games">{{games.title}}</li> -->
+            <li ng-repeat="game in vm.games"><a ng-href="#!/{{game._id}}">
+                    {{game.title | uppercase}}</a>
+                <a style="padding-left:10px" ng-href="#!/{{game._id}}">details</a>
+                <a style="padding-left:10px" ng-href="#!/update/{{game._id}}">edit</a>
+                <a style="padding-left:10px; color:red" ng-href="#!/delete/{{game._id}}">delete</a>
+            </li>
+        </ul>
+    </div>
+    <div class="col-md-4">
+
+        <h3>add a new game</h3> <br>
+        <form name="vm.myForm" ng-submit="vm.addgame(vm.myForm)" style="color:black;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box">
+
+            title:<input class="form-control" type="text" name="title" ng-model="vm.title" style="color:black" /><br />
+            maxPlayers:<input class="form-control" type="text" name="maxPlayers" ng-model="vm.maxPlayers"
+                style="color:black" /><br />
+
+            minPlayers:<input class="form-control" type="text" name="minPlayers" ng-model="vm.minPlayers"
+                style="color:black" /><br />
+            price:<input class="form-control" type="text" name="price" ng-model="vm.price" style="color:black" /><br />
+            year:<input class="form-control" type="text" name="year" ng-model="vm.year" style="color:black" /><br />
+            minAge:<input class="form-control" type="text" name="minAge" ng-model="vm.minAge"
+                style="color:black" /><br />
+            rate:<input class="form-control" type="text" name="rate" ng-model="vm.rate" style="color:black" /><br />
+            <button type="submit" class="btn-success"> Add a game</button>
+
+        </form>
+
+    </div>
+
+</div>

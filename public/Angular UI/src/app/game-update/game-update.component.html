@@ -1,0 +1,30 @@
+<H1>Information about game: <p>{{games?.title}}</p>
+</H1>
+<p>
+
+    Price: {{games?.price | currency}}<BR />
+    Minimum Players: {{games?.minPlayers}}<BR />
+    Maximum Players: {{games?.maxPlayers}}<BR />
+    Minimum Age: {{games?.minAge}}<br />
+    <a style="padding-left:10px" routerLink="/games">Back To
+        List</a>
+</p>
+<form #updateGame="ngForm" (ngSubmit)="onupdate()" novalidate style="color:black;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box">
+       title:<input class="form-control" name="title" id="title" placeholder="title" ngModel /><br />
+       maxPlayers:<input  class="form-control" name="maxPlayers" type="number" id="maxPlayers" placeholder="maxPlayers" ngModel /><br />
+
+       minPlayers:<input class="form-control" name="minPlayers" type="number" id="minPlayers" placeholder="minPlayers" ngModel />
+       price:<input class="form-control" name="price" type="number"  id="price" placeholder="Price" ngModel /><br />
+       year:<input class="form-control" name="year" type="number" id="year" placeholder="year"  ngModel /><br />
+       minAge:<input class="form-control" name="minAge" type="number" id="minAge" placeholder="minAge" ngModel /><br />
+       rate:<input class="form-control" name="rate" type="number" id="rate" placeholder="rate" ngModel /><br />
+
+    <button class="btn-success" type="submit" [disabled]="updateGame.invalid">Update</button>
+
+</form>

@@ -1,0 +1,44 @@
+<div class="row" style="padding-left:10px">
+
+   
+    <div class="col-md-8">
+
+        <h1>Game titles</h1>
+        <ul>
+            <li (click)="onSelect(game)" *ngFor="let game  of games">
+                {{game.title}} <a href="games/{{game._id}}">Details</a> --
+                <a href="games/update/{{game._id}}">Edit</a>--
+                <a href="games/delete/{{game._id}}" style="color:red">delete</a>
+
+            </li>
+        </ul>
+    </div>
+    <div class="col-md-4">
+
+        <h3>add a new game</h3> <br>
+        <form #registerGame="ngForm" (ngSubmit)="onAddGame()" style="color:black;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box">
+
+            title:<input class="form-control" name="title" id="title" placeholder="title" ngModel /><br />
+            maxPlayers:<input class="form-control" name="maxPlayers" type="number" id="maxPlayers"
+                placeholder="maxPlayers" ngModel /><br />
+
+            minPlayers:<input class="form-control" name="minPlayers" type="number" id="minPlayers"
+                placeholder="minPlayers" ngModel />
+            price:<input class="form-control" name="price" type="number" id="price" placeholder="Price" ngModel /><br />
+            year:<input class="form-control" name="year" type="number" id="year" placeholder="year" ngModel /><br />
+            minAge:<input class="form-control" name="minAge" type="number" id="minAge" placeholder="minAge"
+                ngModel /><br />
+            rate:<input class="form-control" name="rate" type="number" id="rate" placeholder="rate" ngModel /><br />
+
+            <button class="btn-success" type="submit" [disabled]="registerGame.invalid">Add a game</button>
+        </form>
+
+    </div>
+
+</div>
